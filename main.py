@@ -10,11 +10,16 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
 from sqlalchemy.orm.exc import NoResultFound
 from functools import wraps
+import os
+from dotenv import load_dotenv
+
+load_dotenv('./.env')
+API_KEY = os.getenv("MyAPIKey")
 
 
 app = Flask(__name__)
 login_manager = LoginManager()
-app.config['SECRET_KEY'] = ''
+app.config['SECRET_KEY'] = API_KEY
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
