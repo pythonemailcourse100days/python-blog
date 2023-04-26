@@ -73,12 +73,12 @@ class Comment(db.Model):
     text = db.Column(db.Text, nullable=False)
 
 
-# with app.app_context():
-#     db.create_all()
-#     db.session.add(User(email="test@email.com",
-#                    password=generate_password_hash(
-#                        "Test", method="pbkdf2:sha256", salt_length=8), name="Test User"))
-#     db.session.commit()
+with app.app_context():
+    db.create_all()
+    db.session.add(User(email="test@email.com",
+                   password=generate_password_hash(
+                       "Test", method="pbkdf2:sha256", salt_length=8), name="Test User"))
+    db.session.commit()
 
 
 def admin_only(f):
